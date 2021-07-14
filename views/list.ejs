@@ -1,0 +1,19 @@
+<%-include("header")-%> <!-- this is used to include the header file -->
+<body>
+    <div class="box" id="heading">
+        <h1>It's <%= listTitle %></h1>
+    </div>
+    <div class="box">
+        <%for(let i=0;i<newListItems.length;i++){%>
+        <div class="item">
+            <input type="checkbox">
+            <p><%= newListItems[i] %></p>
+        </div>    
+        <%}%>
+
+        <form class="item" action=<%= route %> method="POST" autocomplete="off">
+            <input type="text" name="newItem" placeholder="New Item" autofocus>
+            <button type="submit" name="list" value=<%= listTitle %>>+</button>
+        </form>
+    </div>
+<%-include("footer")-%>
